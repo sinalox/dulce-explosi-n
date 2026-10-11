@@ -75,3 +75,12 @@ cd <repository-name>
 npm i
 npm run dev
 ```
+
+## Netlify deployment
+
+Netlify uses the build command and publish directory in `netlify.toml`. The
+Nitro `netlify` preset in `vite.config.ts` generates the server function that
+serves the TanStack Start pages, along with the static assets in `dist`.
+Deploy the complete build through Netlify rather than uploading only the
+static assets; both the homepage and direct links to other pages require
+the generated server function.
