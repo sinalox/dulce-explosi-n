@@ -7,8 +7,8 @@ type Search = { cat?: string | undefined; q?: string | undefined };
 
 export const Route = createFileRoute("/tienda")({
   validateSearch: (s: Record<string, unknown>): Search => ({
-    cat: typeof s.cat === "string" ? s.cat : undefined,
-    q: typeof s.q === "string" ? s.q : undefined,
+    cat: typeof s["cat"] === "string" ? s["cat"] : undefined,
+    q: typeof s["q"] === "string" ? s["q"] : undefined,
   }),
   head: () => ({
     meta: [
