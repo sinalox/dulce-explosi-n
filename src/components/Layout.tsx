@@ -19,7 +19,7 @@ export function Header() {
   const navigate = useNavigate();
   const submit = (e: FormEvent) => {
     e.preventDefault();
-    navigate({ to: "/tienda", search: { q: q || undefined } });
+    navigate({ to: "/tienda", search: q ? { q } : {} });
     setOpen(false);
   };
   return (

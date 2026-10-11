@@ -3,7 +3,7 @@ import { useMemo, useState } from "react";
 import { categories, products, type Spice } from "@/lib/products";
 import { ProductCard } from "@/components/ProductCard";
 
-type Search = { cat?: string; q?: string };
+type Search = { cat?: string | undefined; q?: string | undefined };
 
 export const Route = createFileRoute("/tienda")({
   validateSearch: (s: Record<string, unknown>): Search => ({
