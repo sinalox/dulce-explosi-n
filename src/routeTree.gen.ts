@@ -10,33 +10,115 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CombosRouteImport } from './routes/combos'
+import { Route as ContactoRouteImport } from './routes/contacto'
+import { Route as MayoreoRouteImport } from './routes/mayoreo'
+import { Route as PrivacidadRouteImport } from './routes/privacidad'
+import { Route as TerminosRouteImport } from './routes/terminos'
+import { Route as TiendaRouteImport } from './routes/tienda'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CombosRoute = CombosRouteImport.update({
+  id: '/combos',
+  path: '/combos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactoRoute = ContactoRouteImport.update({
+  id: '/contacto',
+  path: '/contacto',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MayoreoRoute = MayoreoRouteImport.update({
+  id: '/mayoreo',
+  path: '/mayoreo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacidadRoute = PrivacidadRouteImport.update({
+  id: '/privacidad',
+  path: '/privacidad',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TerminosRoute = TerminosRouteImport.update({
+  id: '/terminos',
+  path: '/terminos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TiendaRoute = TiendaRouteImport.update({
+  id: '/tienda',
+  path: '/tienda',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/combos': typeof CombosRoute
+  '/contacto': typeof ContactoRoute
+  '/mayoreo': typeof MayoreoRoute
+  '/privacidad': typeof PrivacidadRoute
+  '/terminos': typeof TerminosRoute
+  '/tienda': typeof TiendaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/combos': typeof CombosRoute
+  '/contacto': typeof ContactoRoute
+  '/mayoreo': typeof MayoreoRoute
+  '/privacidad': typeof PrivacidadRoute
+  '/terminos': typeof TerminosRoute
+  '/tienda': typeof TiendaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/combos': typeof CombosRoute
+  '/contacto': typeof ContactoRoute
+  '/mayoreo': typeof MayoreoRoute
+  '/privacidad': typeof PrivacidadRoute
+  '/terminos': typeof TerminosRoute
+  '/tienda': typeof TiendaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/combos'
+    | '/contacto'
+    | '/mayoreo'
+    | '/privacidad'
+    | '/terminos'
+    | '/tienda'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/combos'
+    | '/contacto'
+    | '/mayoreo'
+    | '/privacidad'
+    | '/terminos'
+    | '/tienda'
+  id:
+    | '__root__'
+    | '/'
+    | '/combos'
+    | '/contacto'
+    | '/mayoreo'
+    | '/privacidad'
+    | '/terminos'
+    | '/tienda'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CombosRoute: typeof CombosRoute
+  ContactoRoute: typeof ContactoRoute
+  MayoreoRoute: typeof MayoreoRoute
+  PrivacidadRoute: typeof PrivacidadRoute
+  TerminosRoute: typeof TerminosRoute
+  TiendaRoute: typeof TiendaRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +130,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/combos': {
+      id: '/combos'
+      path: '/combos'
+      fullPath: '/combos'
+      preLoaderRoute: typeof CombosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contacto': {
+      id: '/contacto'
+      path: '/contacto'
+      fullPath: '/contacto'
+      preLoaderRoute: typeof ContactoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mayoreo': {
+      id: '/mayoreo'
+      path: '/mayoreo'
+      fullPath: '/mayoreo'
+      preLoaderRoute: typeof MayoreoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacidad': {
+      id: '/privacidad'
+      path: '/privacidad'
+      fullPath: '/privacidad'
+      preLoaderRoute: typeof PrivacidadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terminos': {
+      id: '/terminos'
+      path: '/terminos'
+      fullPath: '/terminos'
+      preLoaderRoute: typeof TerminosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tienda': {
+      id: '/tienda'
+      path: '/tienda'
+      fullPath: '/tienda'
+      preLoaderRoute: typeof TiendaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CombosRoute: CombosRoute,
+  ContactoRoute: ContactoRoute,
+  MayoreoRoute: MayoreoRoute,
+  PrivacidadRoute: PrivacidadRoute,
+  TerminosRoute: TerminosRoute,
+  TiendaRoute: TiendaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
